@@ -28,7 +28,9 @@ export const loginUser = createAsyncThunk(
   }
 );
 export const getUser = createAsyncThunk("auth/getUser", async (email) => {
-  const res = await fetch(`https://job-board-server.vercel.app/user/${email}`);
+  const res = await fetch(
+    `https://job-board-server-h5cb.onrender.com/user/${email}`
+  );
   const data = await res.json();
   if (data.status) {
     return data.data;
