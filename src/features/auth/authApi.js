@@ -14,7 +14,7 @@ const authApi = apiSlice.injectEndpoints({
         try {
           const res = await queryFulfilled;
           // `onSuccess` side-effect
-          dispatch(getUser(data.email));
+          dispatch(getUser(data?.email));
         } catch (err) {}
       },
     }),

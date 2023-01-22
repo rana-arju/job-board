@@ -17,7 +17,7 @@ export const createUser = createAsyncThunk(
   "auth/createUser",
   async ({ email, password }) => {
     const data = await createUserWithEmailAndPassword(auth, email, password);
-    return data.user.email;
+    return data?.user?.email;
   }
 );
 export const loginUser = createAsyncThunk(
@@ -40,7 +40,7 @@ export const getUser = createAsyncThunk("auth/getUser", async (email) => {
 export const googleLogin = createAsyncThunk("auth/googleLogin", async () => {
   const provider = new GoogleAuthProvider();
   const data = await signInWithPopup(auth, provider);
-  return data.user.email;
+  return data?.user?.email;
 });
 const authSlice = createSlice({
   name: "auth",

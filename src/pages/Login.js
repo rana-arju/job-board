@@ -14,7 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const onSubmit = (data) => {
-    dispatch(loginUser({ email: data.email, password: data.password }));
+    dispatch(loginUser({ email: data?.email, password: data?.password }));
   };
   useEffect(() => {
     if (!isLoading && email) {

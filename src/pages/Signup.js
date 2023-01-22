@@ -33,7 +33,7 @@ const Signup = () => {
   }, [password, confirmPassword]);
 
   const onSubmit = (data) => {
-    dispatch(createUser({ email: data.email, password: data.password }));
+    dispatch(createUser({ email: data?.email, password: data?.password }));
   };
    useEffect(() => {
      if (!isLoading && email) {
