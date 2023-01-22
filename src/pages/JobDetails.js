@@ -43,12 +43,12 @@ const JobDetails = () => {
   const [sendQuestion] = useQuestionsMutation();
   const [sendReply] = useReplyMutation();
   const handleApply = () => {
-    if (user.role === "employer") {
+    if (user?.role === "employer") {
       toast.error("You need a candidate account to apply!");
       return;
     }
 
-    if (user.role === "") {
+    if (user?.role === "") {
       navigate("/register");
       toast.error("You need a candidate account to apply!");
       return;
@@ -56,7 +56,7 @@ const JobDetails = () => {
 
     const data = {
       userId: user._id,
-      email: user.email,
+      email: user?.email,
       jobId: _id,
     };
     apply(data);
@@ -68,7 +68,7 @@ const JobDetails = () => {
     const queData = {
       ...data,
       userId: user._id,
-      email: user.email,
+      email: user?.email,
       jobId: _id,
     };
     sendQuestion(queData);
@@ -151,7 +151,7 @@ const JobDetails = () => {
                     </p>
                   ))}
 
-                  {user.role === "employer" && (
+                  {user?.role === "employer" && (
                     <div className="flex gap-3 my-5">
                       <input
                         placeholder="Reply"
@@ -171,7 +171,7 @@ const JobDetails = () => {
                 </div>
               ))}
             </div>
-            {user.role === "candidate" && (
+            {user?.role === "candidate" && (
               <form onSubmit={handleSubmit(handleQuestion)}>
                 <div className="flex gap-3 my-5">
                   <input
